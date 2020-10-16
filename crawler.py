@@ -41,6 +41,7 @@ os.chdir('traps')
 x = 0
 
 # writing images
+image_tags_amount = len(image_tags)
 for image in image_tags:
     try:
         source_set = image['srcset'].split(',')
@@ -52,5 +53,6 @@ for image in image_tags:
                 f.write(requests.get(url).content)
                 f.close()
                 x += 1
+        print(str(x) + "/" + str(image_tags_amount))
     except:
         pass
